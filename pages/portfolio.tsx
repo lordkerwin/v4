@@ -1,9 +1,9 @@
 import Container from "../components/Container";
 
-export default function Home() {
+export default function Portfolio() {
   return (
     <Container>
-      <div>Home</div>
+      <div>Portfolio</div>
     </Container>
   );
 }
