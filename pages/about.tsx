@@ -10,6 +10,12 @@ export default function About() {
         sed incidunt autem nemo facere eveniet! Autem dicta sequi voluptatibus
         culpa non.
       </p>
+      <p>
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga, porro
+        amet, ratione recusandae asperiores magni ad nemo enim dolor harum
+        deleniti doloremque. Omnis recusandae accusamus voluptas quidem. Eos,
+        asperiores nam.
+      </p>
     </Container>
   );
 }
