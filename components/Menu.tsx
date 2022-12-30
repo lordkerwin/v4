@@ -1,5 +1,7 @@
+import clsx from "clsx";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useRef, useState } from "react";
 
 import useOnClickOutside from "../hooks/useOnClickOutside";
@@ -77,10 +79,26 @@ const MotionXMark = () => (
 
 const Menu = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
 
   const ref = useRef<HTMLDivElement>(null);
 
   useOnClickOutside(ref, () => setIsOpen(false));
+
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
+  };
+
+  const listItem = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1 },
+  };
 
   return (
     <div className="relative">
@@ -104,17 +122,31 @@ const Menu = () => {
             }}
             className="absolute right-0 w-64 px-6 z-[1000] py-4 mt-2 origin-top-right bg-background rounded-md shadow-lg ring-1 ring-grey-1 focus:outline-none"
           >
-            <ul className="flex flex-col items-start gap-2">
+            <motion.ul
+              variants={container}
+              initial="hidden"
+              animate="show"
+              className="flex flex-col items-start gap-2"
+            >
               {links.map((link) => (
-                <Link
+                <motion.li
+                  variants={listItem}
                   key={link.href + link.label}
-                  href={link.href}
-                  className="p-2"
+                  className="w-full py-1"
                 >
-                  {link.label}
-                </Link>
+                  <Link
+                    href={link.href}
+                    className={clsx(
+                      router.asPath === link.href
+                        ? "underline text-foreground underline-offset-2"
+                        : "text-grey-6"
+                    )}
+                  >
+                    {link.label}
+                  </Link>
+                </motion.li>
               ))}
-            </ul>
+            </motion.ul>
           </motion.div>
         )}
       </AnimatePresence>
