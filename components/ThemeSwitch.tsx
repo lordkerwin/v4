@@ -13,7 +13,7 @@ const SunIcon = () => (
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      initial={{ scale: 0.8, opacity: 0, rotate: 90 }}
+      initial={{ scale: 0.5, opacity: 0, rotate: 90 }}
       animate={{
         scale: 1,
         opacity: 1,
@@ -21,7 +21,7 @@ const SunIcon = () => (
         transition: { duration: 0.2, type: "spring", stiffness: 100 },
       }}
       exit={{
-        scale: 0.8,
+        scale: 0.5,
         opacity: 0,
         rotate: 90,
         transition: { duration: 0.2 },
@@ -51,7 +51,7 @@ const MoonIcon = () => (
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
-      initial={{ scale: 0.8, opacity: 0, rotate: 90 }}
+      initial={{ scale: 0.5, opacity: 0, rotate: 90 }}
       animate={{
         scale: 1,
         opacity: 1,
@@ -59,7 +59,7 @@ const MoonIcon = () => (
         transition: { duration: 0.2, type: "spring", stiffness: 100 },
       }}
       exit={{
-        scale: 0.8,
+        scale: 0.5,
         opacity: 0,
         rotate: 90,
         transition: { duration: 0.2 },
@@ -87,9 +87,12 @@ const ThemeSwitch = () => {
   };
 
   return (
-    <button onClick={() => toggleTheme()} className="p-2 focus:outline-none">
+    <button
+      onClick={() => toggleTheme()}
+      className="p-2 min-h-[40px] -mr-2 block focus:outline-none"
+    >
       <AnimatePresence>
-        {theme === "dark" ? <SunIcon /> : <MoonIcon />}
+        {theme === "dark" ? <MoonIcon /> : <SunIcon />}
       </AnimatePresence>
     </button>
   );
