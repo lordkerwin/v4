@@ -2,7 +2,7 @@ import Container from "../components/Container";
 
 export default function About() {
   return (
-    <Container>
+    <Container title="About">
       <div>About</div>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus dolore

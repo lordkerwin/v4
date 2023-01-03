@@ -2,7 +2,7 @@ import Container from "../components/Container";
 
 export default function Blog() {
   return (
-    <Container>
+    <Container title="Blog">
       <div>Blog</div>
       <p>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate et

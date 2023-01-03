@@ -76,7 +76,7 @@ const ThemeSwitch = () => {
 
   useEffect(() => setMounted(true), []);
 
-  if (!mounted) return null;
+  if (!mounted) return <div className="min-h-[40px] w-1 opacity-0" />;
 
   const toggleTheme = () => {
     if (theme === "dark") {
@@ -91,7 +91,7 @@ const ThemeSwitch = () => {
       onClick={() => toggleTheme()}
       className="p-2 min-h-[40px] -mr-2 block focus:outline-none"
     >
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         {theme === "dark" ? <MoonIcon /> : <SunIcon />}
       </AnimatePresence>
     </button>

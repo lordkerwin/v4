@@ -2,7 +2,7 @@ import Container from "../components/Container";
 
 export default function Contact() {
   return (
-    <Container>
+    <Container title="Contact">
       <div>Contact</div>
       <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit.

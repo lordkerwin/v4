@@ -96,14 +96,16 @@ const Menu = () => {
   };
 
   const listItem = {
-    hidden: { opacity: 0 },
-    show: { opacity: 1 },
+    hidden: { opacity: 0, translateX: 50 },
+    show: { opacity: 1, translateX: 0 },
   };
 
   return (
     <div className="relative">
       <button onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? <MotionXMark /> : <MotionBars />}
+        <AnimatePresence initial={false}>
+          {isOpen ? <MotionXMark /> : <MotionBars />}
+        </AnimatePresence>
       </button>
       <AnimatePresence>
         {isOpen && (
