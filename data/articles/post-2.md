@@ -1,0 +1,14 @@
+---
+title: "Tailwind and Angular"
+publishedAt: 2022-12-24
+tags:
+  - My First Tag
+  - Another Tag
+image: "/public/post-1-hero.webp"
+---
+
+Nulla eu massa nec turpis dignissim imperdiet. Integer sed nibh non arcu ultrices congue consectetur quis erat. Proin lectus eros, sollicitudin a lectus sed, dictum hendrerit felis. Nunc a faucibus ipsum, non commodo dui. Pellentesque vel ex vitae eros sodales interdum pharetra non massa. Vestibulum nec dictum mauris. Maecenas sit amet ipsum sit amet mauris molestie posuere id a mauris. Ut augue lacus, rhoncus et euismod vel, scelerisque vitae enim. Mauris sed faucibus urna. Suspendisse aliquet fringilla lorem sit amet condimentum. Proin nec nisi tincidunt ex imperdiet iaculis. Aliquam a interdum mauris. Sed ac ex ac lorem blandit varius. Vivamus placerat risus quis enim blandit laoreet. Duis vestibulum vel est ac tincidunt.
+
+Mauris at elementum elit, a iaculis metus. Mauris sodales nec erat vitae ultricies. Etiam malesuada cursus varius. Quisque auctor quam ante, eget iaculis diam venenatis vel. Proin consequat magna lorem, eget commodo mi pellentesque in. Morbi convallis libero nec varius sodales. Nullam vulputate, orci vitae imperdiet finibus, nisi velit malesuada leo, vitae consequat urna justo a lorem.
+
+Sed sed mi sed est suscipit mollis eget a justo. Nullam eget purus ac massa lobortis pretium non vitae metus. Quisque eget lectus consequat odio porta tempor. Praesent consectetur eleifend orci, ut ornare dolor luctus ullamcorper. Aliquam non dui ullamcorper, ullamcorper elit ac, gravida urna. Proin lobortis nulla quis metus blandit elementum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lacinia vestibulum mattis. Cras eget nisl quis purus ullamcorper luctus. Ut turpis est, blandit in ex ac, finibus auctor ante. Donec purus risus, vehicula sed ex id, semper luctus ligula. Etiam id vulputate urna. Nunc iaculis magna a augue tincidunt feugiat.

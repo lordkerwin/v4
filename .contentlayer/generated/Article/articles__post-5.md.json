@@ -1,0 +1,30 @@
+{
+  "title": "Lorem Ipsum",
+  "publishedAt": "2022-06-24",
+  "tags": [
+    "My First Tag",
+    "Another Tag"
+  ],
+  "image": "/public/post-1-hero.webp",
+  "body": {
+    "raw": "\nMollit nisi cillum exercitation minim officia velit laborum non Lorem\nadipisicing dolore. Labore commodo consectetur commodo velit adipisicing irure\ndolore dolor reprehenderit aliquip. Reprehenderit cillum mollit eiusmod\nexcepteur elit ipsum aute pariatur in. Cupidatat ex culpa velit culpa ad non\nlabore exercitation irure laborum.\n",
+    "html": "<p>Mollit nisi cillum exercitation minim officia velit laborum non Lorem\nadipisicing dolore. Labore commodo consectetur commodo velit adipisicing irure\ndolore dolor reprehenderit aliquip. Reprehenderit cillum mollit eiusmod\nexcepteur elit ipsum aute pariatur in. Cupidatat ex culpa velit culpa ad non\nlabore exercitation irure laborum.</p>"
+  },
+  "_id": "articles/post-5.md",
+  "_raw": {
+    "sourceFilePath": "articles/post-5.md",
+    "sourceFileName": "post-5.md",
+    "sourceFileDir": "articles",
+    "contentType": "markdown",
+    "flattenedPath": "articles/post-5"
+  },
+  "type": "Article",
+  "readingTime": {
+    "text": "1 min read",
+    "minutes": 0.22,
+    "time": 13200,
+    "words": 44
+  },
+  "wordCount": 46,
+  "slug": "post-5"
+}
