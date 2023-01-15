@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import { Inter } from "@next/font/google";
 
+import Footer from "./Footer";
 import Logo from "./Logo";
 import Navbar from "./Navbar";
 import ThemeSwitch from "./ThemeSwitch";
@@ -61,16 +62,11 @@ const Container = (props: any) => {
         <div className="flex flex-col min-h-screen">
           <Navbar />
           <div className="container">
-            <main className="flex flex-col" id="content">
+            <main className="flex flex-col mt-6" id="content">
               {children}
             </main>
           </div>
-          <footer className="container py-10 text-center sm:text-left">
-            <div className="flex items-center justify-between">
-              &copy; 2023 - Sean Kerwin
-              <ThemeSwitch />
-            </div>
-          </footer>
+          <Footer />
         </div>
       </div>
     </div>

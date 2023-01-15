@@ -27,13 +27,27 @@ export async function getStaticProps() {
 export default function Blog({ articles }: { articles: typeof allArticles }) {
   return (
     <Container title="Blog">
-      <div>Blog</div>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate et
-        veniam unde repellat dolores consequatur saepe, autem in voluptas ab,
-        repudiandae laborum, hic quo? Accusantium modi minima aspernatur earum
-        ea.
-      </p>
+      <div className="flex flex-col gap-4">
+        <h1 className="page-title">Blog</h1>
+        <div className="text-foreground">
+          <p>
+            I write about web development, programming, and other things that I
+            find interesting.
+          </p>
+          <p>
+            You can also follow me on my{" "}
+            <a
+              href="https://twitter.com/snwkrwn"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium underline"
+            >
+              Twitter
+            </a>
+            .
+          </p>
+        </div>
+      </div>
 
       <div className="flex flex-col gap-y-8 mt-10">
         {articles.map((article) => (

@@ -2,6 +2,7 @@ import { pick } from "contentlayer/client";
 import { allArticles } from "contentlayer/generated";
 
 import BlogPostCard from "@/components/BlogPostCard";
+import WelcomeCard from "@/components/WelcomCard";
 
 import Container from "../components/Container";
 
@@ -28,16 +29,16 @@ export async function getStaticProps() {
 const Home = ({ articles }: { articles: typeof allArticles }) => {
   return (
     <Container>
-      <div>Home</div>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet sequi
-        voluptatum nostrum tenetur quasi est nulla quae unde aspernatur cumque
-        eum, voluptas a iusto eaque error! Sed eaque repellat omnis.
-      </p>
-      <div className="flex flex-col gap-y-8 mt-10">
-        {articles.map((article) => (
-          <BlogPostCard key={article.slug} article={article} />
-        ))}
+      <div className="flex flex-col gap-16">
+        <WelcomeCard />
+        <div className="flex flex-col gap-4">
+          <h3 className="text-2xl font-semibold">Latest Articles</h3>
+          <div className="flex flex-col gap-y-8">
+            {articles.map((article) => (
+              <BlogPostCard key={article.slug} article={article} />
+            ))}
+          </div>
+        </div>
       </div>
     </Container>
   );
