@@ -96,8 +96,8 @@ const Menu = () => {
   };
 
   const listItem = {
-    hidden: { opacity: 0, translateX: 50 },
-    show: { opacity: 1, translateX: 0 },
+    hidden: { opacity: 0 },
+    show: { opacity: 1 },
   };
 
   return (

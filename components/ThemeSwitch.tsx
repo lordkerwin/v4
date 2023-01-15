@@ -88,6 +88,8 @@ const ThemeSwitch = () => {
 
   return (
     <button
+      role="button"
+      aria-label="Toggle Dark Mode"
       onClick={() => toggleTheme()}
       className="p-2 min-h-[40px] -mr-2 block focus:outline-none"
     >

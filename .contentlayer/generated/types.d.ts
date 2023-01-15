@@ -16,9 +16,9 @@ export type Article = {
   title: string
   publishedAt: string
   tags?: string[] | undefined
-  image?: string | undefined
-  /** Markdown file body */
-  body: Markdown
+  summary: string
+  /** MDX file body */
+  body: MDX
   readingTime: json
   wordCount: number
   slug: string

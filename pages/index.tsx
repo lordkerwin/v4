@@ -1,3 +1,4 @@
+import { pick } from "contentlayer/client";
 import { allArticles } from "contentlayer/generated";
 
 import BlogPostCard from "@/components/BlogPostCard";
@@ -5,14 +6,22 @@ import BlogPostCard from "@/components/BlogPostCard";
 import Container from "../components/Container";
 
 export async function getStaticProps() {
-  // get the latest 3 articles
   const articles = allArticles
+    .map((article) =>
+      pick(article, [
+        "title",
+        "slug",
+        "publishedAt",
+        "summary",
+        "readingTime",
+        "wordCount",
+      ])
+    )
     .sort(
       (a, b) =>
         Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
     )
     .slice(0, 3);
-  console.log(articles);
   return { props: { articles } };
 }
 
