@@ -32,7 +32,7 @@ const Home = ({ articles }: { articles: typeof allArticles }) => {
       <div className="flex flex-col gap-16">
         <WelcomeCard />
         <div className="flex flex-col gap-4">
-          <h3 className="text-2xl font-semibold">Latest Articles</h3>
+          <h2 className="text-2xl font-semibold">Latest Articles</h2>
           <div className="flex flex-col gap-y-8">
             {articles.map((article) => (
               <BlogPostCard key={article.slug} article={article} />

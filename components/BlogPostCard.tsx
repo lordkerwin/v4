@@ -21,10 +21,10 @@ const BlogPostCard = ({ article }: BlogPostCardProps) => {
       href={`/blog/${article.slug}`}
       className="bg-transparent md:hover:bg-foreground/5 transition duration-300 p-4 -mx-4 rounded-lg"
     >
-      <div className="flex flex-col gap-y-1">
-        <h2 className="text-lg font-semibold leading-tight md:leading-none text-pink-900">
+      <article className="flex flex-col gap-y-1">
+        <h3 className="text-lg font-semibold leading-tight md:leading-none text-pink-900">
           {article.title}
-        </h2>
+        </h3>
         <p className=" ">{article.summary}</p>
         <div className="flex gap-x-4 text-grey-7 transition mt-2">
           <div className="text-sm flex items-center justify-start gap-2 leading-none">
@@ -36,7 +36,7 @@ const BlogPostCard = ({ article }: BlogPostCardProps) => {
             <span>{article.readingTime.text}</span>
           </div>
         </div>
-      </div>
+      </article>
     </Link>
   );
 };

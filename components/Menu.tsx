@@ -101,7 +101,7 @@ const Menu = () => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative" ref={ref}>
       <button onClick={() => setIsOpen(!isOpen)}>
         <AnimatePresence initial={false}>
           {isOpen ? <MotionXMark /> : <MotionBars />}
@@ -110,7 +110,6 @@ const Menu = () => {
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            ref={ref}
             initial={{ opacity: 0, scale: 0.8, translateY: -10 }}
             animate={{
               opacity: 1,
