@@ -11,8 +11,13 @@ import Container from "@/components/Container";
 const ArticlePage = ({ article }: { article: Article }) => {
   const Component = useMDXComponent(article.body.code);
   return (
-    <Container title={article.title}>
-      <div className="prose max-w-none break-words">
+    <Container
+      title={article.title}
+      description={article.summary}
+      date={new Date(article.publishedAt).toISOString()}
+      type="article"
+    >
+      <article className="prose max-w-none break-words">
         <h1>{article.title}</h1>
 
         <div className="border-t border-b border-foreground/20 py-3 mb-10">
@@ -35,7 +40,7 @@ const ArticlePage = ({ article }: { article: Article }) => {
             } as any
           }
         />
-      </div>
+      </article>
     </Container>
   );
 };
