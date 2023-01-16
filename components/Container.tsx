@@ -28,7 +28,7 @@ const Container = (props: any) => {
 
   const meta = {
     description: "Front End Developer based in Wiltshire, UK",
-    image: "https://seankerwin.dev/static/banner.jpg",
+    image: "https://seankerwin.dev/banner.jpg",
     type: "website",
     ...customMeta,
     title: customMeta.title
