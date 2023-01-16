@@ -102,7 +102,11 @@ const Menu = () => {
 
   return (
     <div className="relative" ref={ref}>
-      <button onClick={() => setIsOpen(!isOpen)}>
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Toggle Menu"
+        role="presentation"
+      >
         <AnimatePresence initial={false}>
           {isOpen ? <MotionXMark /> : <MotionBars />}
         </AnimatePresence>
