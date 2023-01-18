@@ -6,10 +6,10 @@ export default function About() {
   return (
     <Container title="About">
       <div className="flex flex-col gap-y-12">
-        <div className="flex gap-x-20 justify-between items-start">
-          <div className="flex flex-col gap-6">
-            <h1 className="text-4xl font-bold">Hey 👋</h1>
-            <p className="text-xl">
+        <div className="flex flex-col md:flex-row gap-6 md:gap-20 justify-between items-start">
+          <div className="order-2 md:order-1 flex flex-col gap-6">
+            <h1 className="text-3xl md:text-4xl font-bold">Hey 👋</h1>
+            <p className="text-lg md:text-xl">
               My name is Sean Kerwin and I&apos;m a self-taught front-end web
               developer and designer based in Wiltshire, England.
             </p>
@@ -17,9 +17,9 @@ export default function About() {
           <Image
             src="/me.webp"
             alt="Sean Kerwin"
-            width={150}
-            height={150}
-            className="rounded-full ring-2 ring-pink-900 ring-offset-4 ring-offset-background mr-1"
+            width={120}
+            height={120}
+            className="order-1 w-24 md:w-auto md:order-2 rounded-full ring-2 ring-pink-900 ring-offset-4 ring-offset-background mr-1"
           />
         </div>
         <hr className="w-20 border-pink-900" />

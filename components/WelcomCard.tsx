@@ -2,10 +2,10 @@ import Image from "next/image";
 
 const WelcomeCard = () => {
   return (
-    <div className="flex gap-20 items-center">
-      <div className="flex flex-col gap-4">
-        <h1 className="text-5xl font-extrabold">Sean Kerwin</h1>
-        <p className="text-foreground/80 text-lg">
+    <div className="flex flex-col md:flex-row gap-6 md:gap-20 md:items-center">
+      <div className="order-2 md:order-1 flex flex-col gap-4">
+        <h1 className="text-4xl md:text-5xl font-extrabold">Sean Kerwin</h1>
+        <p className="text-foreground/80 text-normal md:text-lg">
           I&apos;m a full-stack software engineer from England. I write about
           design, programming and other topics that interest me.
         </p>
@@ -15,7 +15,7 @@ const WelcomeCard = () => {
         alt="Sean Kerwin"
         width={120}
         height={120}
-        className="rounded-full ring-2 ring-pink-900 ring-offset-4 ring-offset-background mr-1"
+        className="order-1 w-24 md:w-auto md:order-2 rounded-full ring-2 ring-pink-900 ring-offset-4 ring-offset-background mr-1"
       />
     </div>
   );
