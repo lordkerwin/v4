@@ -10,3 +10,7 @@ export const relativeDate = (
 ): String => {
   return dayjs().to(date);
 };
+
+export const classNames = (...classes: string[]) => {
+  return classes.filter(Boolean).join(" ");
+};

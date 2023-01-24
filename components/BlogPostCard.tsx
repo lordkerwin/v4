@@ -22,7 +22,7 @@ const BlogPostCard = ({ article }: BlogPostCardProps) => {
       className="bg-transparent md:hover:bg-foreground/5 transition duration-300 p-4 -mx-4 rounded-lg"
     >
       <article className="flex flex-col gap-y-1">
-        <h2 className="text-lg font-semibold leading-tight md:leading-none text-pink-900">
+        <h2 className="text-lg font-semibold leading-tight md:leading-none text-blue-500">
           {article.title}
         </h2>
         <p className=" ">{article.summary}</p>
