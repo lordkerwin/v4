@@ -5,12 +5,14 @@ import TextArea from "@/components/Form/Textarea";
 
 import Container from "../components/Container";
 
-interface IContactFormAction {
-  type: "update" | "reset";
+type Action = "update" | "reset";
+
+interface FormAction {
+  type: Action;
   payload?: object;
 }
 
-interface IContactFormState {
+interface FormState {
   sent: boolean;
   loading: boolean;
   buttonMessage: string;
@@ -46,7 +48,7 @@ const initialState = {
   },
 };
 
-const reducer = (state: IContactFormState, action: IContactFormAction) => {
+const reducer = (state: FormState, action: FormAction): FormState => {
   switch (action.type) {
     case "update":
       if (!action.payload) {
@@ -63,7 +65,7 @@ const reducer = (state: IContactFormState, action: IContactFormAction) => {
   }
 };
 
-const validate = (name: string, value: string) => {
+const validate = (name: string, value: string): string => {
   switch (name) {
     case "email":
       if (!value) {
@@ -101,7 +103,7 @@ const validate = (name: string, value: string) => {
   }
 };
 
-const checkFormValidity = (state: IContactFormState) => {
+const checkFormValidity = (state: FormState): boolean => {
   if (
     state.email.error ||
     state.fullname.error ||
@@ -117,7 +119,7 @@ const checkFormValidity = (state: IContactFormState) => {
 
 const Contact = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  const [formValid, setFormValid] = useState(false);
+  const [formValid, setFormValid] = useState<boolean>(false);
 
   useEffect(() => {
     const valid = checkFormValidity(state);

@@ -16,7 +16,6 @@ const Navbar = () => {
         </Link>
 
         <Menu />
-        {/* <ThemeSwitch /> */}
       </div>
     </nav>
   );

@@ -1,13 +1,13 @@
 import { classNames } from "lib/utils";
 import { AlertCircle } from "lucide-react";
 
-export type FormInputProps = {
+export interface FormInputProps {
   label: string;
   name: string;
   placeholder: string;
   value: string;
   error: string;
-};
+}
 
 interface TextInputProps extends FormInputProps {
   type: string;

@@ -31,7 +31,7 @@ module.exports = {
             },
             code: {
               color: "#fff",
-              backgroundColor: theme("colors.pink[900]"),
+              backgroundColor: theme("colors.blue[900]"),
               padding: "0.29em 0.5em 0.2em",
               borderRadius: "0.25em",
               lineHeight: "1",
@@ -43,9 +43,9 @@ module.exports = {
             "code::after": {
               content: '""',
             },
-            "--tw-prose-headings": theme("colors.pink[900]"),
-            "--tw-prose-bold": theme("colors.pink[900]"),
-            "--tw-prose-code": theme("colors.pink[900]"),
+            "--tw-prose-headings": theme("colors.blue[500]"),
+            "--tw-prose-bold": theme("colors.blue[900]"),
+            "--tw-prose-code": theme("colors.blue[900]"),
           },
         },
       }),
