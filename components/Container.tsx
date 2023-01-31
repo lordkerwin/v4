@@ -5,9 +5,7 @@ import { useEffect, useState } from "react";
 import { Inter } from "@next/font/google";
 
 import Footer from "./Footer";
-import Logo from "./Logo";
 import Navbar from "./Navbar";
-import ThemeSwitch from "./ThemeSwitch";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,10 +22,11 @@ const Container = (props: any) => {
     }
   }, [loading, router.asPath]);
 
-  const defaultTitle = "Sean Kerwin - Front End Developer";
+  const defaultTitle = "Sean Kerwin - Web Developer & Software Engineer";
 
   const meta = {
-    description: "Front End Developer based in Wiltshire, UK",
+    description:
+      "A skilled full-stack developer and software enginner based in Wiltshire, England",
     image: "https://seankerwin.dev/banner.jpg",
     type: "website",
     ...customMeta,
