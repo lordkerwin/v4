@@ -1,0 +1,339 @@
+---
+title: "Next.js and Contentlayer static blog guide"
+publishedAt: 2022-09-02
+summary: "A guide that explains how to build a static blog using Next.js and ContentLayer, a tool for generating static pages from markdown files."
+tags:
+  - nextjs
+  - react
+---
+
+In this post, I'm going to build a blog demo app using Next.js and the blog will be powered by [Contentlayer](https://www.contentlayer.dev/).
+
+We'll be making a statically generated, fast and simple blog with no need for a backend.
+
+[Contentlayer](https://www.contentlayer.dev/) will power the blog functionality using markdown files that we can commit to our repo.
+
+Let's get started.
+
+First, lets create a new Next.js application, you can follow the official guide [here](https://nextjs.org/docs). I will be using `yarn` for this, but you can use `npm` or `pnpm` also.
+
+```bash
+yarn create next-app
+```
+
+You will be presented with some options if you use the above command, like the application name.
+
+Once that has ran, you should navigate into that folder you just created.
+
+## Installing Contentlayer
+
+Head over to the [official docs](https://www.contentlayer.dev/) if you want to read more about Contentlayer.
+
+Add Contentlayer
+
+```bash
+yarn add contentlayer next-contentlayer
+```
+
+Once that has done, open your code in an IDE and open the `next.config.js` file, it should look like this.
+
+```js
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+};
+
+module.exports = nextConfig;
+```
+
+Change it to add the `withContentlayer` import
+
+```js
+const { withContentlayer } = require("next-contentlayer");
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  swcMinify: true,
+};
+
+module.exports = withContentlayer(nextConfig);
+```
+
+With that out the way, we need to create a new file at the root of our project called `jsconfig.json` or `tsconfig.json` if using TypeScript.
+
+```json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["components/*"],
+      "contentlayer/generated": ["./.contentlayer/generated"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.jsx", "**/*.js", ".contentlayer/generated"]
+}
+```
+
+Next we're going to want to create a contentlayer config file in the root of our project called `contentlayer.config.js`
+
+This is what I have in mine
+
+```js
+import { defineDocumentType, makeSource } from "contentlayer/source-files";
+
+const computedFields = {
+  slug: {
+    type: "string",
+    resolve: (doc) => doc._raw.sourceFileName.replace(/\.md$/, ""),
+  },
+};
+
+export const Post = defineDocumentType(() => ({
+  name: "Post",
+  filePathPattern: `posts/*.md`,
+  fields: {
+    title: { type: "string", required: true },
+    publishedAt: { type: "string", required: true },
+    tags: { type: "string" },
+    image: { type: "string" },
+  },
+  wordCount: {
+    type: "number",
+    resolve: (doc) => doc.body.raw.split(/\s+/gu).length,
+  },
+  computedFields,
+}));
+
+export default makeSource({
+  contentDirPath: "data",
+  documentTypes: [Post],
+});
+```
+
+What this is doing is specifying a single document type called `Post` and they're all going to live inside a folder called `data/posts/*.md`.
+
+You can read more about how this works [here](https://www.contentlayer.dev/docs/getting-started).
+
+We're going to create two new folders, in the root of our project, create a folder called `data`, then inside that, create another called `posts`. The reason we're nesting it like this, is once you get your head around Contentlayer, you can extend the config above to define different document types, for instance, you might want to have `Posts`, `Projects` and `Guides` all stored inside your code.
+
+Inside the `data/posts` folder, create some markdown files that have the following format:
+
+```md
+---
+title: Lorem Ipsum
+publishedAt: 2022-06-24
+tags: ['Nextjs', 'React'] // optional
+image: '/static/post-1-hero.webp' // optional
+---
+
+Mollit nisi cillum exercitation minim officia velit laborum non Lorem
+adipisicing dolore. Labore commodo consectetur commodo velit adipisicing irure
+dolore dolor reprehenderit aliquip. Reprehenderit cillum mollit eiusmod
+excepteur elit ipsum aute pariatur in. Cupidatat ex culpa velit culpa ad non
+labore exercitation irure laborum.
+```
+
+The title and publishedAt are required, but the tags and image are not, they're optional, (we specified this in the config above) so try and create some posts with and without the optional fields.
+
+The folder structure should be the following:
+
+```md
+docs/
+├─ posts/
+│ ├─ post-1.md
+│ ├─ post-2.md
+│ ├─ post-3.md
+```
+
+You are free to call these markdown files whatever you want, keep them lower-case and hyphenated as this will be the slug/url for that post.
+
+Before we go any further, lets test that contentlayer is all hooked up correctly.
+
+```bash
+yarn dev
+```
+
+If all works, you should get an output a bit like the following:
+
+```bash
+$ next dev
+ready - started server on 0.0.0.0:3000, url: http://localhost:3000
+info  - SWC minify release candidate enabled. https://nextjs.link/swcmin
+Generated 3 documents in .contentlayer
+event - compiled client and server successfully in 1225 ms (178 modules)
+wait  - compiling...
+event - compiled client and server successfully in 49 ms (178 modules)
+```
+
+Notice the `Generated 3 documents in .contentlayer` bit, that tells us that we've hooked contentlayer up and its generated 3 files based on our markdown files.
+
+If we look in our project, a `.contentlayer` folder has been created, don't edit anything inside of here as it gets regenerated each time things are changed. But if we go take a look, we should have a folder inside called `generated` and a `Post` folder inside that.
+
+```md
+.
+└── .contentlayer/
+├── .cache
+└── generated/
+└── Post/
+├── \_index.json
+├── \_index.mjs
+├── posts**post-1.md.json
+├── posts**post-2.md.json
+└── posts\_\_post-3.md.json
+```
+
+Take a look at one of the files, `posts__post-1.md.json` and it will look something like this:
+
+```json
+{
+  "title": "My first blog post",
+  "publishedAt": "2022-06-24T00:00:00.000Z",
+  "tags": ["Nextjs", "React"],
+  "image": "/static/post-1-hero.webp",
+  "body": {
+    "raw": "\nMollit nisi cillum exercitation minim officia velit laborum non Lorem\nadipisicing dolore. Labore commodo consectetur commodo velit adipisicing irure\ndolore dolor reprehenderit aliquip. Reprehenderit cillum mollit eiusmod\nexcepteur elit ipsum aute pariatur in. Cupidatat ex culpa velit culpa ad non\nlabore exercitation irure laborum.\n",
+    "html": "<p>Mollit nisi cillum exercitation minim officia velit laborum non Lorem\nadipisicing dolore. Labore commodo consectetur commodo velit adipisicing irure\ndolore dolor reprehenderit aliquip. Reprehenderit cillum mollit eiusmod\nexcepteur elit ipsum aute pariatur in. Cupidatat ex culpa velit culpa ad non\nlabore exercitation irure laborum.</p>"
+  },
+  "_id": "posts/post-1.md",
+  "_raw": {
+    "sourceFilePath": "posts/post-1.md",
+    "sourceFileName": "post-1.md",
+    "sourceFileDir": "posts",
+    "contentType": "markdown",
+    "flattenedPath": "posts/post-1"
+  },
+  "type": "Post",
+  "slug": "post-1"
+}
+```
+
+In this file, we can see what contentlayer has generated, we've got `body.html` from our Markdown content, our slug, tags, date and title all there. Now lets use that inside react!
+
+## Rendering the posts
+
+We're going to keep this simple by just using the `index.js` page to fetch our content, but we could if we wanted to, break this out into a separate page.
+
+Open up the `pages/index.js` file and delete everything inside of it, we're going to start fresh.
+
+I'm a big fan of arrow functions but if you want to use a traditional function, that's fine.
+
+Place this inside the `inedx.js` file to get started.
+
+```jsx
+const Index = () => {
+  return <div>Hello world.</div>;
+};
+
+export default Index;
+```
+
+If you run the app with `yarn dev` now, and open it in a browser, `http://localhost:3000`, you should see a blank page with `hello world` in the corner. If so, great! Let's move on.
+
+Now update your index.js file to have the following:
+
+```jsx
+import { allPosts } from "contentlayer/generated";
+
+export async function getStaticProps() {
+  const posts = allPosts.sort(
+    (a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
+  );
+  return { props: { posts } };
+}
+
+const Index = ({ posts }) => {
+  console.log(posts);
+  return <div>Hello world!</div>;
+};
+
+export default Index;
+```
+
+What we're doing here is adding the `allPosts` import that contentlayer generated, remember the `.contentlayer` folder, take a look in there at the `_index.mjs` file, that's where the `allPosts` function comes from.
+
+We're going to use Next.js `getStaticProps` method (which is asynchronous) - `getStaticProps` is a method to tell Next.js to pre-render this page at build time, and use the props provided by `getStaticProps`. You can read more about this [here](https://nextjs.org/docs/basic-features/data-fetching/get-static-props).
+
+We're then passing `posts` to the `Index` method, and if you `console.log(posts)` inside that, you'll be able to see them on the running app console.
+
+I also created a folder at the root of my project called `static` with some images inside `post-1-hero.webp` which is what is in the markdown file for the `image` tag.
+
+This is my final `index.js` file
+
+```jsx
+import { allPosts } from "contentlayer/generated";
+import Image from "next/image";
+
+export async function getStaticProps() {
+  const posts = allPosts.sort(
+    (a, b) => Number(new Date(b.publishedAt)) - Number(new Date(a.publishedAt))
+  );
+  return { props: { posts } };
+}
+
+const Index = ({ posts }) => {
+  return (
+    <div>
+      <div className="posts">
+        <h1>Posts</h1>
+
+        {posts.map((post, i) => (
+          <div key={i} className="post">
+            <div>
+              <h2>{post.title}</h2>
+
+              <span>{post.publishedAt}</span>
+
+              {/* Loop through any tags if we have any */}
+              <ul>
+                {post.tags && post.tags.map((tag, i) => <li key={i}>{tag}</li>)}
+              </ul>
+            </div>
+
+            {post.image && (
+              <div
+                style={{
+                  width: "200px",
+                  position: "relative",
+                  height: "100px",
+                }}
+              >
+                <Image
+                  src={post.image}
+                  alt={post.title}
+                  layout="fill"
+                  objectFit="cover"
+                />
+              </div>
+            )}
+
+            {/* Post body */}
+            <p>{post.body.raw}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default Index;
+```
+
+If you've followed this guide, you should be able to start your project
+
+```bash
+yarn dev
+```
+
+and see some `posts` on the page.
+
+This will all be statically generated at build time which is great for speed, no need for a back-end to store your blog posts any more, just add a new post markdown file, commit it, and run a build/deploy.
+
+Whilst there are so many things that can be done with Contentlayer, you can look at adding pagination, fetching next and previous posts and having multiple document types, all within the same code-base.
+
+I really like contentlayer and the fact that it means I can write blog posts/article and just store them in my Git repo, posts can then be version controlled and I don't have the overhead of running a server to store the posts.
+
+Feel free to checkout this code in my repo [here](https://github.com/lordkerwin/nextjs-contentlayer-demo).
+
+I also use Contentlayer on my personal website, you can see the code for that [here](https://github.com/lordkerwin/v2) or see it in action by going to [seankerwin.dev](https://seankerwin.dev)

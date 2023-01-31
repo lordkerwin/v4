@@ -1,0 +1,30 @@
+{
+  "title": "Contentlayer and Next.js with TypeScript",
+  "publishedAt": "2022-11-24",
+  "tags": [
+    "My First Tag",
+    "Another Tag"
+  ],
+  "image": "/public/post-1-hero.webp",
+  "body": {
+    "raw": "\nLigula sit amet elementum mollis, neque odio eleifend lacus, non laoreet arcu risus id nibh. Cras vel nulla id arcu ullamcorper sodales sed sit amet lorem. Praesent pharetra, lectus eget rutrum cursus, orci metus cursus erat, a rhoncus ex velit ut purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut in ipsum hendrerit, bibendum nibh ac, bibendum metus. Aenean volutpat est lectus, scelerisque congue risus fermentum ut. Pellentesque rutrum tempor ex, et accumsan enim. Maecenas a sem luctus, placerat diam eget, tempus quam. Fusce congue quam at vehicula efficitur. Vivamus gravida felis non nunc vulputate, laoreet aliquam sapien venenatis. Aenean viverra sapien ut orci lacinia vestibulum. Mauris at gravida tortor, non eleifend libero. In ut ipsum lacus. Proin risus velit, ornare et pulvinar at, sodales eget quam. Donec interdum in nulla nec dapibus.\n\nCurabitur scelerisque blandit placerat. Duis consequat tincidunt tortor, nec euismod ante ultrices et. Ut imperdiet, metus et fermentum blandit, mi elit scelerisque nunc, id porttitor justo ligula in lorem. Ut et ipsum tellus. Sed feugiat dolor sed accumsan bibendum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris lorem purus, mollis ut lobortis at, sodales ac justo.\n\nDuis turpis eros, lobortis eu feugiat a, mattis dapibus diam. Nulla at quam eros. Pellentesque consectetur varius tellus non sagittis. Aliquam erat volutpat. Pellentesque sed ante ac velit tempus hendrerit. Fusce sit amet eros a turpis dictum pharetra. Duis vulputate ultricies orci, nec pharetra dui dictum non. Proin convallis, justo vel malesuada molestie, mauris orci tincidunt diam, ultrices volutpat mi orci in augue. Nullam lorem erat, cursus a pellentesque nec, porta sit amet tellus. Donec porttitor eleifend feugiat.\n\nDonec scelerisque commodo tortor, sit amet mattis sapien dictum vel. Sed non efficitur lorem, vel mattis erat. Praesent et odio et purus faucibus tempus ac eu mi. Pellentesque euismod in lacus ac volutpat. Pellentesque vel ex nec tortor vestibulum porta. Nullam in lacus posuere enim imperdiet maximus. In id risus est.\n\nMorbi nec vestibulum diam, quis efficitur quam. Etiam eget gravida augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean nisi lacus, volutpat quis dictum nec, laoreet et orci. Suspendisse iaculis et erat sit amet imperdiet. Nulla faucibus nunc nec tortor auctor, ac consequat justo tristique. Morbi sit amet dui quis purus ultricies luctus quis a orci.\n",
+    "html": "<p>Ligula sit amet elementum mollis, neque odio eleifend lacus, non laoreet arcu risus id nibh. Cras vel nulla id arcu ullamcorper sodales sed sit amet lorem. Praesent pharetra, lectus eget rutrum cursus, orci metus cursus erat, a rhoncus ex velit ut purus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Ut in ipsum hendrerit, bibendum nibh ac, bibendum metus. Aenean volutpat est lectus, scelerisque congue risus fermentum ut. Pellentesque rutrum tempor ex, et accumsan enim. Maecenas a sem luctus, placerat diam eget, tempus quam. Fusce congue quam at vehicula efficitur. Vivamus gravida felis non nunc vulputate, laoreet aliquam sapien venenatis. Aenean viverra sapien ut orci lacinia vestibulum. Mauris at gravida tortor, non eleifend libero. In ut ipsum lacus. Proin risus velit, ornare et pulvinar at, sodales eget quam. Donec interdum in nulla nec dapibus.</p>\n<p>Curabitur scelerisque blandit placerat. Duis consequat tincidunt tortor, nec euismod ante ultrices et. Ut imperdiet, metus et fermentum blandit, mi elit scelerisque nunc, id porttitor justo ligula in lorem. Ut et ipsum tellus. Sed feugiat dolor sed accumsan bibendum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris lorem purus, mollis ut lobortis at, sodales ac justo.</p>\n<p>Duis turpis eros, lobortis eu feugiat a, mattis dapibus diam. Nulla at quam eros. Pellentesque consectetur varius tellus non sagittis. Aliquam erat volutpat. Pellentesque sed ante ac velit tempus hendrerit. Fusce sit amet eros a turpis dictum pharetra. Duis vulputate ultricies orci, nec pharetra dui dictum non. Proin convallis, justo vel malesuada molestie, mauris orci tincidunt diam, ultrices volutpat mi orci in augue. Nullam lorem erat, cursus a pellentesque nec, porta sit amet tellus. Donec porttitor eleifend feugiat.</p>\n<p>Donec scelerisque commodo tortor, sit amet mattis sapien dictum vel. Sed non efficitur lorem, vel mattis erat. Praesent et odio et purus faucibus tempus ac eu mi. Pellentesque euismod in lacus ac volutpat. Pellentesque vel ex nec tortor vestibulum porta. Nullam in lacus posuere enim imperdiet maximus. In id risus est.</p>\n<p>Morbi nec vestibulum diam, quis efficitur quam. Etiam eget gravida augue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Aenean nisi lacus, volutpat quis dictum nec, laoreet et orci. Suspendisse iaculis et erat sit amet imperdiet. Nulla faucibus nunc nec tortor auctor, ac consequat justo tristique. Morbi sit amet dui quis purus ultricies luctus quis a orci.</p>"
+  },
+  "_id": "articles/post-3.md",
+  "_raw": {
+    "sourceFilePath": "articles/post-3.md",
+    "sourceFileName": "post-3.md",
+    "sourceFileDir": "articles",
+    "contentType": "markdown",
+    "flattenedPath": "articles/post-3"
+  },
+  "type": "Article",
+  "readingTime": {
+    "text": "2 min read",
+    "minutes": 1.96,
+    "time": 117600,
+    "words": 392
+  },
+  "wordCount": 394,
+  "slug": "post-3"
+}

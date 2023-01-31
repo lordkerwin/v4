@@ -1,0 +1,43 @@
+---
+title: "Understanding SWR in Next.js"
+publishedAt: 2023-01-11
+summary: "Learn how SWR (stale-while-revalidate) library in Next.js simplifies data fetching and caching for server-rendered React applications, improving performance and handling common data scenarios."
+---
+
+Next.js is a popular framework for building server-rendered React applications. One of the key features of Next.js is its built-in support for static site generation (SSG) and automatic code splitting. However, one of the challenges of building a Next.js application is how to handle data fetching and caching in a performant and efficient way.
+
+Enter SWR (stale-while-revalidate). SWR is a library created by Vercel (the company behind Next.js) that makes it easy to handle data fetching and caching in Next.js. It is based on the stale-while-revalidate caching strategy, which allows the application to continue to display stale data while it is in the process of updating it with fresh data.
+
+Here's how it works:
+
+1. When a component using SWR first renders, it will automatically fetch the data it needs from the specified endpoint.
+2. The data is then cached in the browser's memory, so that it can be quickly retrieved the next time the component is rendered.
+3. While the component is re-rendering, SWR will check if the data in the cache is stale (i.e. it has been updated on the server) and if so, it will automatically fetch fresh data and update the cache.
+4. Once the fresh data has been fetched, the component will re-render with the updated data.
+
+One of the key benefits of using SWR is that it allows you to easily handle common data fetching scenarios, such as pagination, filtering, and sorting, while also ensuring that your application remains performant.
+
+You can use SWR by installing the library and importing it into your component like this:
+
+```jsx
+import useSWR from "swr";
+
+function MyComponent() {
+  const { data, error } = useSWR("/api/data");
+
+  if (error) return <div>Failed to load data</div>;
+  if (!data) return <div>Loading...</div>;
+
+  return <div>{data.name}</div>;
+}
+```
+
+In this example, **useSWR** is a hook that takes in the endpoint url to fetch the data from and returns an object containing the data and an error. The component will display "Loading..." while the data is being fetched and "Failed to load data" if an error occurs.
+
+In addition to the basic usage, SWR also provides a number of advanced features such as cache invalidation, custom fetcher function, and more.
+
+Overall, SWR is a powerful tool for handling data fetching and caching in Next.js. It allows you to easily handle common data fetching scenarios while ensuring that your application remains performant.
+
+You can learn more about SWR on the [Vercel docs](https://nextjs.org/docs/basic-features/data-fetching/client-side#client-side-data-fetching-with-swr) or on the [SWR GitHub page](https://github.com/vercel/swr)
+
+If you want to know more about how to use SWR in your Next.js application, this is a good place to start.

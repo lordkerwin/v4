@@ -1,0 +1,92 @@
+---
+title: "Day.js with RelativeTime in Nuxt.js"
+publishedAt: 2022-02-23
+summary: "How to use the Day.js library with the relativeTime plugin in Nuxt.js to format and display relative timestamps for dynamic content."
+tags:
+  - dayjs
+  - nuxtjs
+  - vue
+---
+
+This is a relatively short guide, and it's just to show how easy it is to implement [day.js](https://day.js.org/) inside a Nuxt app.
+
+I've always just used Moment.js for date formatting, but since Moment.js has now been abandoned and they're encouraging people to use alternatives, I needed to find a way to convert timestamps that are provided by the API's I consume. They usually return timestamps in the following format:
+
+```js
+2020-10-08T07:51:58Z
+```
+
+Which to be honest, isn't really useful to anyone. That's where day.js comes in, it can convert the timestamp above into something like
+
+```js
+Oct 8th 2020
+```
+
+It's pretty simple to do.
+
+First we need to pull in the `@nuxtjs/dayjs` package with the following command.
+
+```bash
+yarn add @nuxtjs/dayjs
+or
+npm install @nuxtjs/dayjs
+```
+
+Once that is installed, open up your `nuxt.config.js` and add
+`'@nuxtjs/dayjs'` to the `modules` section, and then outside of that, add the following `dayjs` object.
+
+```js
+modules: [
+    '@nuxtjs/dayjs',
+    ...
+],
+dayjs: {
+    locales: ['en'],
+    defaultLocale: 'en',
+    plugins: ['relativeTime', 'advancedFormat'],
+},
+```
+
+Set any _locales_ you want, for me, being in the United Kingdom, I set my locale to `en` and then add any additional dayjs plugins you need. I'm using the [RelativeTime](https://day.js.org/docs/en/plugin/relative-time) and [AdvancedFormat](https://day.js.org/docs/en/plugin/advanced-format) plugins.
+
+Once everything is installed, you from within any component you can do the following
+
+```js
+{
+  {
+    $dayjs("2020-10-08T07:51:58Z").format("MMM Do YYYY");
+  }
+}
+```
+
+Which will output this
+
+```js
+Oct 8th 2020
+```
+
+You can also use the RelativeTime plugin to turn it into this:
+
+```js
+{
+  {
+    $dayjs("2020-10-08T07:51:58Z").fromNow();
+  }
+}
+```
+
+Which will return
+
+`a year ago`
+
+You can obviously, not use hard-coded dates and use props/variables such as
+
+```js
+{
+  {
+    $dayjs(post.published_at).fromNow();
+  }
+}
+```
+
+Day.js is a simple and ultra-lightweight replacement for Moment.js and is super easy to use.

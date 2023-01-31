@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../contentlayer.config.js"],
+  "sourcesContent": ["import { defineDocumentType, makeSource } from \"contentlayer/source-files\";\n\nconst computedFields = {\n  slug: {\n    type: \"string\",\n    resolve: (doc) => doc._raw.sourceFileName.replace(/\\.md$/, \"\"),\n  },\n};\n\nexport const Article = defineDocumentType(() => ({\n  name: \"Article\",\n  filePathPattern: `articles/*.md`,\n  fields: {\n    title: { type: \"string\", required: true },\n    publishedAt: { type: \"string\", required: true },\n    tags: { type: \"object\" },\n    image: { type: \"string\" },\n  },\n  wordCount: {\n    type: \"number\",\n    resolve: (doc) => doc.body.raw.split(/\\s+/gu).length,\n  },\n  computedFields,\n}));\n\nexport default makeSource({\n  contentDirPath: \"data\",\n  documentTypes: [Article],\n});\n"],
+  "mappings": ";AAAA,SAAS,oBAAoB,kBAAkB;AAE/C,IAAM,iBAAiB;AAAA,EACrB,MAAM;AAAA,IACJ,MAAM;AAAA,IACN,SAAS,CAAC,QAAQ,IAAI,KAAK,eAAe,QAAQ,SAAS,EAAE;AAAA,EAC/D;AACF;AAEO,IAAM,UAAU,mBAAmB,OAAO;AAAA,EAC/C,MAAM;AAAA,EACN,iBAAiB;AAAA,EACjB,QAAQ;AAAA,IACN,OAAO,EAAE,MAAM,UAAU,UAAU,KAAK;AAAA,IACxC,aAAa,EAAE,MAAM,UAAU,UAAU,KAAK;AAAA,IAC9C,MAAM,EAAE,MAAM,SAAS;AAAA,IACvB,OAAO,EAAE,MAAM,SAAS;AAAA,EAC1B;AAAA,EACA,WAAW;AAAA,IACT,MAAM;AAAA,IACN,SAAS,CAAC,QAAQ,IAAI,KAAK,IAAI,MAAM,OAAO,EAAE;AAAA,EAChD;AAAA,EACA;AACF,EAAE;AAEF,IAAO,8BAAQ,WAAW;AAAA,EACxB,gBAAgB;AAAA,EAChB,eAAe,CAAC,OAAO;AACzB,CAAC;",
+  "names": []
+}
