@@ -43,6 +43,9 @@ module.exports = {
             "code::after": {
               content: '""',
             },
+            "strong": {
+              color: theme("colors.blue[400]"),
+            },
             "--tw-prose-headings": theme("colors.blue[500]"),
             "--tw-prose-bold": theme("colors.blue[900]"),
             "--tw-prose-code": theme("colors.blue[900]"),
