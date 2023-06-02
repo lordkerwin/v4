@@ -8,5 +8,6 @@ import articles__poposTheFirstWeekMdx from './articles__popos-the-first-week.mdx
 import articles__reactHooksAndMemoOptimizingYourReactComponentsMdx from './articles__react-hooks-and-memo-optimizing-your-react-components.mdx.json' assert { type: 'json' }
 import articles__understandingSwrInNextjsMdx from './articles__understanding-swr-in-nextjs.mdx.json' assert { type: 'json' }
 import articles__understandingTheUsememoAndUsecallbackHooksInReactMdx from './articles__understanding-the-usememo-and-usecallback-hooks-in-react.mdx.json' assert { type: 'json' }
+import articles__balancingSpeedAndCostMdx from './articles__balancing-speed-and-cost.mdx.json' assert { type: 'json' }
 
-export const allArticles = [articles__angularFirebaseHostingGitlabMdx, articles__angularTailwindCssGuideMdx, articles__dayjsWithRelativeTimeNuxtjsMdx, articles__nextjsContentlayerStaticBlogGuideMdx, articles__poposTheFirstWeekMdx, articles__reactHooksAndMemoOptimizingYourReactComponentsMdx, articles__understandingSwrInNextjsMdx, articles__understandingTheUsememoAndUsecallbackHooksInReactMdx]
+export const allArticles = [articles__angularFirebaseHostingGitlabMdx, articles__angularTailwindCssGuideMdx, articles__dayjsWithRelativeTimeNuxtjsMdx, articles__nextjsContentlayerStaticBlogGuideMdx, articles__poposTheFirstWeekMdx, articles__reactHooksAndMemoOptimizingYourReactComponentsMdx, articles__understandingSwrInNextjsMdx, articles__understandingTheUsememoAndUsecallbackHooksInReactMdx, articles__balancingSpeedAndCostMdx]
