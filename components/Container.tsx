@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
-import { Inter } from "@next/font/google";
+import { Inter } from "next/font/google";
 
 import Footer from "./Footer";
 import Navbar from "./Navbar";
